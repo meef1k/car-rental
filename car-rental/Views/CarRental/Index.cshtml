@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CarRental>
 
 @{
-    ViewData["Title"] = "Wynajem";
+    ViewData["Title"] = "Edytuj wynajem";
 }
 
 <div class="container p-3">
@@ -21,19 +21,19 @@
         <table class="table table-brodered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <td>
+                    <th>
                         Wynajęcie od
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Wynajęcie do
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Wynajmujący
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Samochód
-                    </td>
-                    <td></td>
+                    </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -42,9 +42,18 @@
                 <tr>
                     <td width="20%">@obj.RentFrom</td>
                     <td width="20%">@obj.RentTo</td>
-                    <td width="25%">@obj.RentalId</td>
-                    <td width="25%">@obj.CarId</td>
-                    <td></td>
+                    <td width="20%">@obj.RentalId</td>
+                    <td width="20%">@obj.CarId</td>
+                    <td class="text-center">
+                        <div class="w-75 vtn-group" role="group">
+                            <a asp-controller="CarRental" asp-route-Id="@obj.CarRentalId" asp-action="Edit" class="btn btn-primary">
+                                Edytuj
+                            </a>
+                            <a asp-controller="CarRental" asp-route-Id="@obj.CarRentalId" asp-action="Delete" class="btn btn-danger">
+                                Usuń
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             }
             </tbody>

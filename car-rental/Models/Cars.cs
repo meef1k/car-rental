@@ -11,12 +11,16 @@ namespace car_rental.Models
     {
         [Key]
         public int CarId { get; set; }
+        [Required]
         [Display(Name = "Marka pojazdu")]
         public string Name { get; set; }
+        [Required]
         [Display(Name = "Numer rejestracyjny")]
         public string CarNumber { get; set; }
+        [Required]
         [Display(Name = "Typ auta")]
         public CarType CarType { get; set; }
+        [Required]
         [Display(Name = "Czy jest dostępny?")]
         public bool IsVisible { get; set; }
         public List<CarRental> CarRental { get; set; }

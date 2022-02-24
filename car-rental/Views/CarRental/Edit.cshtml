@@ -1,14 +1,15 @@
 ﻿@model CarRental
 
 @{
-    ViewData["Title"] = "Dodaj wynajęcie";
+    ViewData["Title"] = "Edytuj wynajem";
 }
 
-<form method="post" asp-action="Create">
+<form method="post">
+    <input asp-for="CarRentalId" hidden />
     <div class="border p-3">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <h2 class="text-info pl-3">Dodaj wynajęcie</h2>
+            <h2 class="text-info pl-3">Edytuj wynajęcie</h2>
         </div>
         <div class="row">
             <div class="col-8">
@@ -52,10 +53,10 @@
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Utwórz" />
+                            <input type="submit" class="btn btn-success w-100" value="Edytuj" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100">
+                            <a asp-action="Index" class="btn btn-info w-100">
                                 Powrót
                             </a>
                         </div>

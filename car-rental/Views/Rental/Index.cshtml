@@ -21,19 +21,19 @@
         <table class="table table-brodered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <td>
+                    <th>
                         Imię i nazwisko
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Adres
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Numer telefonu
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Adres e-mail
-                    </td>
-                    <td></td>
+                    </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,10 +41,19 @@
                 {
                 <tr>
                     <td width="20%">@obj.CustomerName</td>
-                    <td width="30%">@obj.CustomerAddress</td>
+                    <td width="25%">@obj.CustomerAddress</td>
                     <td width="15%">@obj.PhoneNumber</td>
                     <td width="15%">@obj.AddressEmail</td>
-                    <td></td>
+                    <td class="text-center">
+                        <div class="w-75 vtn-group" role="group">
+                            <a asp-controller="Rental" asp-route-Id="@obj.RentalId" asp-action="Edit" class="btn btn-primary">
+                                Edytuj
+                            </a>
+                            <a asp-controller="Rental" asp-route-Id="@obj.RentalId" asp-action="Delete" class="btn btn-danger">
+                                Usuń
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             }
             </tbody>

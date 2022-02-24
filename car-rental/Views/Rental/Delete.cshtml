@@ -1,61 +1,56 @@
-﻿@model CarRental
+﻿@model Rental
 
 @{
-    ViewData["Title"] = "Dodaj wynajęcie";
+    ViewData["Title"] = "Usuń użytkownika";
 }
 
-<form method="post" asp-action="Create">
+<form method="post">
+    <input asp-for="RentalId" hidden />
     <div class="border p-3">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <h2 class="text-info pl-3">Dodaj wynajęcie</h2>
+            <h2 class="text-info pl-3">Usuń użytkownika</h2>
         </div>
         <div class="row">
             <div class="col-8">
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="RentFrom"></label>
+                        <label asp-for="CustomerName"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="RentFrom" class="form-control" />
-                        <span asp-validation-for="RentFrom" class="text-danger"></span>
+                        <input asp-for="CustomerName" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="RentTo"></label>
+                        <label asp-for="CustomerAddress"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="RentTo" class="form-control" />
-                        <span asp-validation-for="RentTo" class="text-danger"></span>
+                        <input asp-for="CustomerAddress" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="RentalId"></label>
+                        <label asp-for="PhoneNumber"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="RentalId" class="form-control" />
-                        <span asp-validation-for="RentalId" class="text-danger"></span>
+                        <input asp-for="PhoneNumber" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="CarId"></label>
+                        <label asp-for="AddressEmail"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="CarId" class="form-control" />
-                        <span asp-validation-for="CarId" class="text-danger"></span>
+                        <input asp-for="AddressEmail" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
-
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Utwórz" />
+                            <input type="submit" class="btn btn-danger w-100" value="Usuń" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100">
+                            <a asp-action="Index" class="btn btn-info w-100">
                                 Powrót
                             </a>
                         </div>
