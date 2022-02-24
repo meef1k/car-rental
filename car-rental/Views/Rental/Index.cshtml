@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Rental>
+
+@{
+    ViewData["Title"] = "Użytkownicy";
+}
+
+<div class="container p-3">
+    <div class="row pt-6">
+        <div class="col-6">
+            <h2 class="text-primary">Lista użytkowników</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Rental" asp-action="Create" class="btn btn-primary">
+                Dodaj nowego użytkownika
+            </a>
+        </div>
+    </div>
+    <br /><br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-brodered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <td>
+                        Imię i nazwisko
+                    </td>
+                    <td>
+                        Adres
+                    </td>
+                    <td>
+                        Numer telefonu
+                    </td>
+                    <td>
+                        Adres e-mail
+                    </td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                <tr>
+                    <td width="20%">@obj.CustomerName</td>
+                    <td width="30%">@obj.CustomerAddress</td>
+                    <td width="15%">@obj.PhoneNumber</td>
+                    <td width="15%">@obj.AddressEmail</td>
+                    <td></td>
+                </tr>
+            }
+            </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Nie ma użytkowników w bazie</p>
+        }
+</div>
