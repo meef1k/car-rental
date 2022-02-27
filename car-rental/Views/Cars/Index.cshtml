@@ -43,10 +43,24 @@
                     <td width="25%">@obj.Name</td>
                     <td width="20%">@obj.CarNumber</td>
                     <td width="20%">@obj.CarType</td>
-                    <td width="10%">@obj.IsVisible</td>
+                    @if (@obj.CarRental.Count() > 0)
+                    {
+                        @if (@obj?.CarRental[0]?.RentTo > @DateTime.Now && @obj?.CarRental[0]?.RentFrom < @DateTime.Now)
+                        {
+                            <td width="10%">Niedostępny</td>
+                        }
+                        else
+                        {
+                            <td width="10%">Dostępny</td>
+                        }
+                    }
+                    else
+                    {
+                        <td width="10%">Dostępny</td>
+                    }
                     <td class="text-center">
                         <div class="w-75 vtn-group" role="group">
-                            <a asp-controller="Cars" asp-route-Id="@obj.CarId" asp-action="Edit" class="btn btn-primary">
+                            <a asp-controller="Cars" asp-route-Id="@obj.CarId" asp-action="Edit" class="btn btn-success">
                                 Edytuj
                             </a>
                             <a asp-controller="Cars" asp-route-Id="@obj.CarId" asp-action="Delete" class="btn btn-danger">
@@ -55,12 +69,12 @@
                         </div>
                     </td>
                 </tr>
-            }
+                }
             </tbody>
-            </table>
-        }
-        else
-        {
-            <p>Nie ma samochodów w bazie</p>
-        }
+        </table>
+    }
+    else
+    {
+        <p>Nie ma samochodów w bazie</p>
+    }
 </div>

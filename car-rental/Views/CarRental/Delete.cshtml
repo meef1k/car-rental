@@ -33,7 +33,11 @@
                         <label asp-for="RentalId"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="RentalId" disabled class="form-control" />
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.RentalId, new SelectList(ViewBag.ListOfRentals, "RentalId", "CustomerName"), new { @class = "form-control", @disabled = true })
+                            @Html.ValidationMessageFor(m => m.RentalId)
+                        </div>
+                        <span asp-validation-for="RentalId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -41,7 +45,11 @@
                         <label asp-for="CarId"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="CarId" disabled class="form-control" />
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.CarId, new SelectList(ViewBag.ListOfCars, "CarId", "Name"), new { @class = "form-control", @disabled = true })
+                            @Html.ValidationMessageFor(m => m.CarId)
+                        </div>
+                        <span asp-validation-for="CarId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">

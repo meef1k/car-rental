@@ -1,4 +1,5 @@
-﻿@model Cars
+﻿@using car_rental.Typy;
+@model Cars
 
 @{
     ViewData["Title"] = "Usuń samochód";
@@ -33,15 +34,10 @@
                         <label asp-for="CarType"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="CarType" disabled class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="IsVisible"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="IsVisible" disabled class="form-control" />
+                        <select asp-items="Html.GetEnumSelectList<CarType>()" disabled asp-for="CarType" class="form-control">
+                            <option value="">
+                            </option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

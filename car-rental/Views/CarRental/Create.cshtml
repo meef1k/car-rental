@@ -35,7 +35,10 @@
                         <label asp-for="RentalId"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="RentalId" class="form-control" />
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.RentalId, new SelectList(ViewBag.ListOfRentals, "RentalId", "CustomerName"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.RentalId)
+                        </div>
                         <span asp-validation-for="RentalId" class="text-danger"></span>
                     </div>
                 </div>
@@ -44,18 +47,20 @@
                         <label asp-for="CarId"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="CarId" class="form-control" />
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.CarId, new SelectList(ViewBag.ListOfCars, "CarId", "Name"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CarId)
+                        </div>
                         <span asp-validation-for="CarId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">
-
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Utwórz" />
+                            <input type="submit" class="btn btn-success w-100" value="Utwórz" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100">
+                            <a asp-action="Index" class="btn btn-info w-100">
                                 Powrót
                             </a>
                         </div>

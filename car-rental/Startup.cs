@@ -38,7 +38,7 @@ namespace car_rental
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
             app.UseStaticFiles();
 

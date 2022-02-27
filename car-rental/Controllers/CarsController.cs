@@ -1,6 +1,7 @@
 ﻿using car_rental.Data;
 using car_rental.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace car_rental.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Cars> objList = _db.Cars;
+            IEnumerable<Cars> objList = await _db.Cars.Include(x=>x.CarRental).ToListAsync();
             return View(objList);
         }
         //GET - CREATE

@@ -44,7 +44,7 @@
                         <label asp-for="AddressEmail"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="AddressEmail" class="form-control" />
+                        <input type="email" asp-for="AddressEmail" class="form-control" />
                         <span asp-validation-for="AddressEmail" class="text-danger"></span>
                     </div>
                 </div>
@@ -52,10 +52,10 @@
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Utwórz" />
+                            <input type="submit" class="btn btn-success w-100" value="Utwórz" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100">
+                            <a asp-action="Index" class="btn btn-info w-100">
                                 Powrót
                             </a>
                         </div>

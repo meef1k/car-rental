@@ -1,6 +1,7 @@
 ﻿using car_rental.Data;
 using car_rental.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace car_rental.Controllers
         //GET - CREATE
         public IActionResult Create()
         {
+            ViewBag.ListofCars = _db.Cars;
+            ViewBag.ListofRentals = _db.Rental;
             return View();
         }
         //POST - CREATE
@@ -41,6 +44,8 @@ namespace car_rental.Controllers
         //GET - EDIT
         public IActionResult Edit(int? id)
         {
+            ViewBag.ListofCars = _db.Cars;
+            ViewBag.ListofRentals = _db.Rental;
             if (id == null)
             {
                 return NotFound();
@@ -68,6 +73,8 @@ namespace car_rental.Controllers
         //GET - DELETE
         public IActionResult Delete(int? id)
         {
+            ViewBag.ListofCars = _db.Cars;
+            ViewBag.ListofRentals = _db.Rental;
             if (id == null)
             {
                 return NotFound();
